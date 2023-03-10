@@ -1,0 +1,179 @@
+%!TEX=xelatx
+
+\documentclass[UTF-8,12pt]{article}
+
+%****************************************%
+%  作 者                                 %
+%****************************************%
+\newcommand{\mytitle}{Lovecc98}
+\newcommand{\myname}{98er}
+\newcommand{\myid}{xxxx}
+\newcommand{\mydepartment}{心灵之约学院}
+\newcommand{\myclass}{水\quad 帖\quad 学}
+\newcommand{\myteacher}{CC\quad 98}
+
+\usepackage{ctex}
+
+%****************************************%
+%  设 置                                 %
+%****************************************%
+\usepackage{geometry}       % 设置页边距
+\geometry{top=2.54cm,bottom=2.54cm,inner=3.18cm,outer=2.54cm}
+%\geometry{right=2.8cm,left=2.8cm,top=1.5cm,bottom=1.75cm}
+\usepackage{indentfirst}    % 设置缩进
+\setlength{\parindent}{2em}
+\usepackage{enumitem}       % 设置enumerate间距
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0em}
+\setitemize[1]{parsep=\parskip,itemsep=0pt,topsep=0pt,partopsep=0pt}
+\usepackage{setspace}       % 设置行间距
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\parskip}{0em}   % 设置段间距
+
+\usepackage{array}      % 表格设置
+\usepackage{makecell}
+\usepackage[font=bf]{caption}
+
+\usepackage{amsmath}
+
+\usepackage{graphicx}   % 插入图片
+
+\usepackage{listings}   % 插入代码
+\usepackage{xcolor}     % 设置代码颜色
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=1em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+
+\setCJKfamilyfont{Song}{Song.ttc}
+\newcommand{\myheaderfont}{\CJKfamily{Song}\fontsize{9pt}{\baselineskip}}
+\newcommand{\mysectionfont}{\fontsize{16pt}{\baselineskip}}
+\newcommand{\mysubsectionfont}{\fontsize{15pt}{\baselineskip}}
+\newcommand{\mysubsubsectionfont}{\fontsize{14pt}{\baselineskip}}
+\newcommand{\mytocfont}{\fontsize{11pt}{\baselineskip}}
+\newcommand{\mycoverfontb}{\fontsize{16pt}{\baselineskip}}
+\newcommand{\mycoverfontc}{\fontsize{10.5pt}{\baselineskip}}
+\newcommand{\mytablefont}{\fontsize{10.5pt}{\baselineskip}}
+
+\usepackage{titlesec}   % 定制多级标题
+\setcounter{secnumdepth}{4}
+\titleformat{\section}{\mysectionfont\bfseries}{\chinese{section}、}{0em}{}
+\titleformat{\subsection}{\mysubsectionfont\bfseries}{\arabic{subsection}}{0.5em}{}
+\titleformat{\subsubsection}{\mysubsubsectionfont\bfseries}{\arabic{subsection}.\arabic{subsubsection}}{0.5em}{}
+\titleformat{\paragraph}{\mysubsubsectionfont\bfseries}{\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}{0.5em}{}
+\newcommand{\subsubsubsection}{\paragraph}
+\titlespacing*{\section}{0pt}{3.5ex}{2.3ex}
+\titlespacing*{\subsection}{0pt}{3.25ex}{1.5ex}
+\titlespacing*{\subsubsection}{0pt}{3.25ex}{1.5ex}
+\titlespacing*{\paragraph}{0pt}{2ex}{1em}
+\titlespacing*{\subparagraph}{\parindent}{0.5em}{1em}
+
+\usepackage{titletoc}   % 定制目录
+\usepackage[CJKbookmarks]{hyperref}
+\setcounter{tocdepth}{2}
+\renewcommand{\thesection}{\chinese{section}、}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\contentsname}{目 \quad 录}
+\titlecontents{section}[2em]{\bf}{\contentslabel{2em}}{}{\titlerule*[0.25pc]{$.$}\contentspage}
+\titlecontents{subsection}[2em]{\mytocfont}{\contentslabel{1em}}{}{\titlerule*[0.25pc]{$.$}\contentspage}
+\titlecontents{subsubsection}[3.8em]{\mytocfont}{\contentslabel{1.8em}}{}{\titlerule*[0.25pc]{$.$}\contentspage}
+
+\usepackage{fancyhdr}   % 设置页眉页脚
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[R]{\myheaderfont \mytitle}
+\fancyhead[L]{\myheaderfont \myclass 课程大作业}
+\fancyfoot[C]{\myheaderfont 第\thepage 页}
+
+\usepackage{natbib}     % 定制参考文献
+\setcitestyle{numbers,square}
+\usepackage{hyperref}
+
+\newcommand{\enabstractname}{Abstract}  %英文摘要
+\newcommand{\cnabstractname}{\songti 摘要}  %中文摘要
+\newenvironment{enabstract}{
+  \par\small
+  \noindent\mbox{}\hfill{\bfseries \enabstractname}\hfill\mbox{}\par
+  \vskip 2.5ex}{\par\vskip 2.5ex}
+\newenvironment{cnabstract}{
+  \par\small
+  \noindent\mbox{}\hfill{\bfseries \cnabstractname}\hfill\mbox{}\par
+  \vskip 2.5ex}{\par\vskip 2.5ex}
+
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{longtable}
+\usepackage{tikz}
+\newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
+    circle (.5em) node {\makebox[1em][c]{\small #1}};}}
+
+\begin{document}
+%****************************************%
+%  封 面                                 %
+%****************************************%
+\newgeometry{top=1in,bottom=1in,inner=1.25in,outer=1.25in}
+\pagestyle{empty}
+
+\begin{center}
+\includegraphics[width=5in]{images/zju.jpg}\\
+\vspace{1cm}
+\mbox{\textbf{\Huge 《\myclass》课程大作业}}\\
+\vspace{1.8cm}
+\mbox{\huge \mytitle}\\
+\vspace{1.8cm}
+\includegraphics[width=2in]{images/qsy.jpg}\\
+\vspace{2.5cm}
+\mycoverfontb{\bf{\makebox[3.2cm][l]{课程名称}\underline{\makebox[7cm]{\myclass}}}}\\
+\mycoverfontc{\makebox[12cm]{}}\\
+\mycoverfontb{\bf{\makebox[3.2cm][l]{指导教师}\underline{\makebox[7cm]{\myteacher}}}}\\
+\mycoverfontc{\makebox[12cm]{}}\\
+\end{center}
+
+%****************************************%
+%  摘  要                                 %
+%****************************************%
+\newpage
+\begin{cnabstract}
+    \songti 浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛
+    
+    浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛浙江大学CC98论坛
+    \newline
+    \textbf{关键字：}浙江大学\quad 嘻嘻酒吧\quad 
+\end{cnabstract}
+\newpage
+\begin{enabstract}
+  ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 .
+  
+  ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 ZJUCC98 .
+    \newline
+    \textbf{Keywords:} ZJUCC98  \quad 89CCUJZ 
+  \end{enabstract}
+
+%****************************************%
+%  目 录                                 %
+%****************************************%
+\newpage \setcounter{page}{1} \thispagestyle{empty}
+\pagenumbering{Roman}
+\restoregeometry
+\pagestyle{empty}
+\tableofcontents
+
+%****************************************%
+%  正 文                                 %
+%****************************************%
+\newpage \pagestyle{fancy} \setcounter{page}{1}
+\pagenumbering{arabic}
+
+\input{section.tex}
+\input{appendix.tex}
+
+\end{document}
